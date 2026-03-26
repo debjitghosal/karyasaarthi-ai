@@ -146,6 +146,6 @@ Converts unstructured notes into actionable workflows
 Improves productivity and execution clarity
 
 
-<!-- Author
+Author
 
-Debjit Ghosal -->
+Debjit Ghosal
