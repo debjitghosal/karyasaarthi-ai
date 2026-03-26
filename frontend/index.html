@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KaryaSaarthi AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <div class="hero-top">
+        <div>
+          <h1>KaryaSaarthi AI</h1>
+          <p class="subtitle">Autonomous Enterprise Workflow Assistant</p>
+        </div>
+        <span class="status-badge">Live on Cloud Run</span>
+      </div>
+    </header>
+
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Notes Saved</div>
+        <div class="stat-value" id="notesCount">0</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-label">Tasks Extracted</div>
+        <div class="stat-value" id="tasksCount">0</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-label">Execution Status</div>
+        <div class="stat-value small" id="planStatus">Not Generated</div>
+      </div>
+    </section>
+
+    <section class="calendar-card">
+      <div class="calendar-card-header">
+        <div>
+          <h2>Monthly Task Calendar</h2>
+          <p class="calendar-subtitle">
+            Click any day to view tasks planned for that date.
+          </p>
+        </div>
+
+        <div class="calendar-legend">
+          <span class="legend-item">
+            <span class="legend-dot green"></span> Free
+          </span>
+          <span class="legend-item">
+            <span class="legend-dot yellow"></span> 1–2 Tasks
+          </span>
+          <span class="legend-item">
+            <span class="legend-dot red"></span> 3+ Tasks
+          </span>
+        </div>
+      </div>
+
+      <div class="calendar-toolbar">
+        <button id="prevMonthBtn" class="secondary">Previous</button>
+        <div id="monthLabel" class="month-label"></div>
+        <button id="nextMonthBtn" class="secondary">Next</button>
+      </div>
+
+      <div class="weekday-row">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+      </div>
+
+      <div id="calendarGrid" class="calendar-grid"></div>
+    </section>
+
+    <main class="grid">
+      <section class="card">
+        <h2>1. Enter Meeting Notes</h2>
+
+        <label for="noteTitle">Note Title</label>
+        <input id="noteTitle" type="text" placeholder="e.g. ET Workflow Meeting" />
+
+        <label for="noteContent">Meeting Notes</label>
+        <textarea
+          id="noteContent"
+          rows="10"
+          placeholder="Paste meeting notes here..."
+        ></textarea>
+
+        <div class="button-row">
+          <button id="saveNoteBtn">Save Note</button>
+          <button id="extractTasksBtn" class="secondary">Extract Tasks</button>
+        </div>
+
+        <p class="helper">
+          Saved Note ID: <span id="savedNoteId">Not saved yet</span>
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>2. Extracted Tasks</h2>
+        <div id="tasksContainer" class="empty-state">
+          No tasks yet. Save a note and extract tasks.
+        </div>
+      </section>
+
+      <section class="card full-width">
+        <div class="section-header">
+          <h2>3. Generate Execution Plan</h2>
+          <div class="button-row">
+            <button id="planBtn">Generate Execution Plan</button>
+            <button id="loadTasksBtn" class="secondary">Refresh Tasks</button>
+          </div>
+        </div>
+
+        <div id="planContainer" class="empty-state">
+          No plan generated yet.
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="dayModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Day Details</h3>
+        <button id="closeModalBtn" class="close-btn">&times;</button>
+      </div>
+      <div id="modalBody" class="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
