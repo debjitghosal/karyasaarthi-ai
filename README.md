@@ -42,6 +42,26 @@ flowchart TD
     E --> F
 
     F --> G[Execution Plan Output]
+    G --> H[(SQLite Database)]
+
+    C --> I[Gemini Vertex AI]
+    D --> I
+    E --> I
+    F --> I
+
+```mermaid
+flowchart TD
+    A[User Input] --> B[Orchestrator Agent]
+
+    B --> C[Notes Agent]
+    B --> D[Task Agent]
+    B --> E[Schedule Agent]
+
+    C --> F[Workflow Agent]
+    D --> F
+    E --> F
+
+    F --> G[Execution Plan Output]
     G --> H[(Database - SQLite)]
 
     F --> I[Gemini (Vertex AI)]
@@ -126,6 +146,6 @@ Converts unstructured notes into actionable workflows
 Improves productivity and execution clarity
 
 
-Author
+<!-- Author
 
-Debjit Ghosal
+Debjit Ghosal -->
